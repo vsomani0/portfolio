@@ -1,0 +1,17 @@
+input, textarea, button {
+    font: inherit;
+}
+form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1em;
+}
+label {
+    display: contents;
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
+button {
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
