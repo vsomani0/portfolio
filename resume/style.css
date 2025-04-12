@@ -3,4 +3,26 @@ body {
          and use the OS’s UI font as the website font
        */
     font: 100%/1.5 system-ui;
+    max-width: 100ch;
+    margin-right: 1em;
   }
+.outer-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap
+}
+.outer-date .date {
+  margin-left: auto;
+  text-align: right;
+  white-space: nowrap;
+}
+ul {
+  margin-top: 0em;
+}
+h2.section-title {
+  text-align: left;
+}
+html {
+  margin-left:2em;
+}
