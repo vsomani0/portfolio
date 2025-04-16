@@ -10,14 +10,15 @@ let pages = [
 let nav = document.createElement('nav');
 document.body.prepend(nav);
 let ul = document.createElement('ul');
-nav.append(ul)
+nav.appendChild(ul)
 
 
 for (let p of pages) {
   let url = p.url
   let title = p.title
   let li = document.createElement('li')
-  li.insertAdjacentHTML('beforeend', `<a href ="${url}">"${title}"</a>`)
+  li.insertAdjacentHTML('beforeend', `<a href ="${url}">${title}</a>`)
+  ul.appendChild(li)
 }
 
 function $$(selector, context = document) {
