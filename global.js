@@ -2,10 +2,10 @@ console.log('IT’S ALIVE 2!');
 
 let pages = [
   {url: '', title: 'Home'},
-  {url: '../contact/', title: 'Contact'},
-  {url: '../projects/', title: 'Projects'},
+  {url: 'contact/', title: 'Contact'},
+  {url: 'projects/', title: 'Projects'},
   {url: "https://github.com/vsomani0", title: 'Github'},
-  {url: '../resume/', title: 'Resume'},
+  {url: 'resume/', title: 'Resume'},
 ]
 let nav = document.createElement('nav');
 document.body.prepend(nav);
