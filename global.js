@@ -1,4 +1,4 @@
-console.log('IT’S ALIVE 1!');
+console.log('IT’S ALIVE 2!');
 
 let pages = [
   {url: '', title: 'Home'},
@@ -15,7 +15,7 @@ nav.appendChild(ul)
 
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1") 
 ? "/" 
-: "website"
+: "/portfolio/"
 
 function convert_url(url) {
   // Allow for usage on website
