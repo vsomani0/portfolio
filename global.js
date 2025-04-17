@@ -22,10 +22,13 @@ function convert_url(url) {
   if (!url.startsWith('http')) {
     return BASE_PATH + url
   }
+  return url
 };
 
+// Automatic navigation bar
 for (let p of pages) {
   let url = convert_url(p.url)
+  console.log(url)
   let title = p.title
   let li = document.createElement('li')
   let a = document.createElement('a')
