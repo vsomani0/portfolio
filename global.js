@@ -38,6 +38,38 @@ for (let p of pages) {
   ul.appendChild(li)
 }
 
+function add_navigation_styles() {
+  const styleElement = document.createElement('style')
+  styleElement.textContext = `
+  nav {
+    display: flex;
+  }
+  nav ul {
+    display: contents;
+  }
+  nav ul li {
+    display: contents
+  }
+  nav ul a {
+    flex-grow: 1;
+    text-decoration: none;
+    text-align: center;
+    color: inherit;
+    padding: 0.5em;
+    border-bottom-color: oklch(80% 3% 200);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+  }
+  nav ul a.current {
+    border-bottom-width: 0.4em;
+    padding-bottom: 0.2em;
+  }
+  `;
+  document.head.appendChild(styleElement);
+}
+
+document.addEventListener('DOMContentLoaded', add_navigation_styles)
+
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 };
