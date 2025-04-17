@@ -28,13 +28,17 @@ for (let p of pages) {
   let url = convert_url(p.url)
   let title = p.title
   let li = document.createElement('li')
-  li.insertAdjacentHTML('beforeend', `<a href ="${url}">${title}</a>`)
+  let a = document.createElement('a')
+  a.href = url
+  a.textContent = title
+  li.append(a)
   ul.appendChild(li)
 }
 
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 };
+// Add current class to all links that direct to this page
 let navLinks = $$("nav a")
 let currentLink = navLinks.find((a) => a.host === location.host && a.pathname === location.pathname)
 currentLink?.classList.add('current');
