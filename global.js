@@ -1,4 +1,4 @@
-console.log('IT’S ALIVE 2!');
+console.log('IT’S ALIVE 3!');
 
 let pages = [
   {url: '', title: 'Home'},
@@ -28,7 +28,6 @@ function convert_url(url) {
 // Automatic navigation bar
 for (let p of pages) {
   let url = convert_url(p.url)
-  console.log(url)
   let title = p.title
   let li = document.createElement('li')
   let a = document.createElement('a')
@@ -41,6 +40,9 @@ for (let p of pages) {
 function add_navigation_styles() {
   const styleElement = document.createElement('style')
   styleElement.textContext = `
+  :root {
+  --color-accent: oklch(65% 50% 0)
+  }
   nav {
     display: flex;
   }
@@ -64,6 +66,11 @@ function add_navigation_styles() {
     border-bottom-width: 0.4em;
     padding-bottom: 0.2em;
   }
+  a:hover {
+  border-bottom-color: var(--color-accent);
+  border-bottom-width: 0.4em;
+  padding-bottom: 0.2em;
+}
   `;
   document.head.appendChild(styleElement);
 }
