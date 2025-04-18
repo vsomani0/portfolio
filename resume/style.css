@@ -1,28 +1,56 @@
 body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
-    font: 100%/1.5 system-ui;
-    max-width: 100ch;
-    margin-right: 1em;
-  }
+  /* Set line height to 1.5 times the font size
+       and use the OS’s UI font as the website font
+     */
+  font: 100%/1.5 system-ui;
+  max-width: 100ch;
+  margin-right: 1em;
+}
 .outer-date {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: nowrap
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+flex-wrap: nowrap
 }
 .outer-date .date {
-  margin-left: auto;
-  text-align: right;
-  white-space: nowrap;
+margin-left: auto;
+text-align: right;
+white-space: nowrap;
 }
 ul {
-  margin-top: 0em;
+margin-top: 0em;
 }
 h2.section-title {
-  text-align: left;
+text-align: left;
 }
 html {
-  margin-left:2em;
+margin-left:2em;
+}
+nav {
+  display: flex;
+}
+nav ul {
+  display: contents;
+}
+nav ul li {
+  display: contents
+}
+nav ul a {
+  flex-grow: 1;
+  text-decoration: none;
+  text-align: center;
+  color: inherit;
+  padding: 0.5em;
+  border-bottom-color: oklch(80% 3% 200);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+nav ul a.current {
+  border-bottom-width: 0.4em;
+  padding-bottom: 0.2em;
+}
+a:hover {
+  border-bottom-color: var(--color-accent);
+  border-bottom-width: 0.4em;
+  padding-bottom: 0.2em;
 }

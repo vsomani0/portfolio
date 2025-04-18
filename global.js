@@ -1,5 +1,4 @@
-console.log('IT’S ALIVE 3!');
-
+console.log('IT’S ALIVE 4!');
 let pages = [
   {url: '', title: 'Home'},
   {url: 'contact/', title: 'Contact'},
@@ -16,6 +15,7 @@ nav.appendChild(ul)
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1") 
 ? "/" 
 : "/portfolio/"
+console.log(`base path: ${BASE_PATH}`)
 
 function convert_url(url) {
   // Allow for usage on website
@@ -38,8 +38,9 @@ for (let p of pages) {
 }
 
 function add_navigation_styles() {
+  console.log('add navigation called!')
   const styleElement = document.createElement('style')
-  styleElement.textContext = `
+  styleElement.textContent = `
   :root {
   --color-accent: oklch(65% 50% 0)
   }
@@ -71,7 +72,8 @@ function add_navigation_styles() {
   border-bottom-width: 0.4em;
   padding-bottom: 0.2em;
 }
-  `;
+  ;
+  `
   document.head.appendChild(styleElement);
 }
 
