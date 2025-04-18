@@ -4,7 +4,6 @@ body {
      */
   font: 100%/1.5 system-ui;
   max-width: 100ch;
-  margin-right: 1em;
 }
 .outer-date {
 display: flex;
@@ -25,32 +24,4 @@ text-align: left;
 }
 html {
 margin-left:2em;
-}
-nav {
-  display: flex;
-}
-nav ul {
-  display: contents;
-}
-nav ul li {
-  display: contents
-}
-nav ul a {
-  flex-grow: 1;
-  text-decoration: none;
-  text-align: center;
-  color: inherit;
-  padding: 0.5em;
-  border-bottom-color: oklch(80% 3% 200);
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-}
-nav ul a.current {
-  border-bottom-width: 0.4em;
-  padding-bottom: 0.2em;
-}
-a:hover {
-  border-bottom-color: var(--color-accent);
-  border-bottom-width: 0.4em;
-  padding-bottom: 0.2em;
 }

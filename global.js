@@ -1,4 +1,4 @@
-console.log('IT’S ALIVE 4!');
+console.log('IT’S ALIVE 5!');
 let pages = [
   {url: '', title: 'Home'},
   {url: 'contact/', title: 'Contact'},
@@ -37,47 +37,52 @@ for (let p of pages) {
   ul.appendChild(li)
 }
 
-function add_navigation_styles() {
-  console.log('add navigation called!')
-  const styleElement = document.createElement('style')
-  styleElement.textContent = `
-  :root {
-  --color-accent: oklch(65% 50% 0)
-  }
-  nav {
-    display: flex;
-  }
-  nav ul {
-    display: contents;
-  }
-  nav ul li {
-    display: contents
-  }
-  nav ul a {
-    flex-grow: 1;
-    text-decoration: none;
-    text-align: center;
-    color: inherit;
-    padding: 0.5em;
-    border-bottom-color: oklch(80% 3% 200);
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-  }
-  nav ul a.current {
-    border-bottom-width: 0.4em;
-    padding-bottom: 0.2em;
-  }
-  a:hover {
-  border-bottom-color: var(--color-accent);
-  border-bottom-width: 0.4em;
-  padding-bottom: 0.2em;
-}
-  ;
+document.body.insertAdjacentHTML(
+  'afterbegin',
   `
-  document.head.appendChild(styleElement);
+	<label class="color-scheme">
+		Theme:
+		<select id='theme-select'>
+			<option>Automatic</option>
+      <option>Light</option>
+      <option>Dark</option>
+		</select>
+	</label>`,
+);
+const themeSelect = document.getElementById('theme-select');
+
+// Add an event listener to capture changes
+themeSelect.addEventListener('change', function() {
+  const selectedTheme = this.value;
+  localStorage.setItem('theme', selectedTheme);
+  applyTheme(selectedTheme);
+});
+
+// Function to apply the theme
+function applyTheme(theme) {
+  // Implementation depends on how you want to apply the theme
+  console.log(`Theme changed to: ${theme}`);
+  
+  // Example implementation
+  if (theme === 'Light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+  } else if (theme === 'Dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+  }
 }
 
-document.addEventListener('DOMContentLoaded', add_navigation_styles)
+// Load saved theme on page load
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  // Set the select element to the saved value
+  themeSelect.value = savedTheme;
+  // Apply the saved theme
+  applyTheme(savedTheme);
+}
+
 
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
