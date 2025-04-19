@@ -47,3 +47,10 @@ remaining space, how to align rows and columns etc.
   border-bottom-width: 0.4em;
   padding-bottom: 0.2em;
 }
+label.color-scheme {
+  position: absolute;
+  font-size: 80%;
+  font-family: inherit;
+  top: 1rem;
+  right: 1rem;
+}

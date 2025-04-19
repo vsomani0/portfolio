@@ -1,4 +1,4 @@
-console.log('IT’S ALIVE 5!');
+console.log('IT’S ALIVE 6!');
 let pages = [
   {url: '', title: 'Home'},
   {url: 'contact/', title: 'Contact'},
@@ -36,14 +36,14 @@ for (let p of pages) {
   li.append(a)
   ul.appendChild(li)
 }
-
+const PREFERRED_MODE = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Dark' : 'Light'
 document.body.insertAdjacentHTML(
   'afterbegin',
   `
 	<label class="color-scheme">
 		Theme:
 		<select id='theme-select'>
-			<option>Automatic</option>
+			<option>Automatic (${PREFERRED_MODE})</option>
       <option>Light</option>
       <option>Dark</option>
 		</select>
@@ -58,28 +58,23 @@ themeSelect.addEventListener('change', function() {
   applyTheme(selectedTheme);
 });
 
-// Function to apply the theme
 function applyTheme(theme) {
-  // Implementation depends on how you want to apply the theme
-  console.log(`Theme changed to: ${theme}`);
+    console.log(`Theme changed to: ${theme}`);
   
-  // Example implementation
   if (theme === 'Light') {
-    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.style.colorScheme = "light";
   } else if (theme === 'Dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.style.colorScheme = "dark";
   } else {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    document.documentElement.style.colorScheme = "light dark";
+
   }
 }
 
-// Load saved theme on page load
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
-  // Set the select element to the saved value
+  // Update the dropdown bar using .value
   themeSelect.value = savedTheme;
-  // Apply the saved theme
   applyTheme(savedTheme);
 }
 
