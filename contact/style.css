@@ -6,7 +6,7 @@ form {
     grid-template-columns: auto 1fr;
     gap: 1em;
 }
-label {
+label:not(.color-scheme) {
     display: contents;
     grid-column-start: 1;
     grid-column-end: -1;
