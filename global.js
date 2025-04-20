@@ -78,7 +78,20 @@ if (savedTheme) {
   applyTheme(savedTheme);
 }
 
-
+const mailForm = document.getElementById('mail-form');
+mailForm?.addEventListener('submit', function(event) {
+  event.preventDefault();
+  let data = new FormData(mailForm);
+  let url = mailForm.action;
+  for (let [name, value] of data) {
+    if (name === 'subject') {
+      url += `?${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
+    } else if (name === 'body') {
+      url += `&${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
+    }
+  }
+  location.href = url;
+})
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 };
