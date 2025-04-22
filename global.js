@@ -1,4 +1,4 @@
-console.log('IT’S ALIVE 6!');
+console.log('IT’S ALIVE 7!');
 let pages = [
   {url: '', title: 'Home'},
   {url: 'contact/', title: 'Contact'},
@@ -92,6 +92,38 @@ mailForm?.addEventListener('submit', function(event) {
   }
   location.href = url;
 })
+
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+const projects = await fetchJSON('../lib/projects.json');
+const projectsContainer = document.querySelector('.projects');
+
+export async function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  containerElement.innerHTML = ''
+  for (const project of projects) {
+    const article = document.createElement('article')
+    article.innerHTML = `
+    <${headingLevel}>${project.title}</${headingLevel}>
+    <img src=${project?.image ?? 'Image Not Found'}, alt = "${project.title}">
+    <p>${project.description}</p>
+    `
+    containerElement.appendChild(article);
+  }
+  
+}
+
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 };
