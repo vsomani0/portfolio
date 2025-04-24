@@ -6,6 +6,7 @@ let pages = [
   {url: "https://github.com/vsomani0", title: 'Github'},
   {url: 'resume/', title: 'Resume'},
 ]
+
 let nav = document.createElement('nav');
 document.body.prepend(nav);
 let ul = document.createElement('ul');
@@ -107,8 +108,8 @@ export async function fetchJSON(url) {
   }
 }
 
-const projects = await fetchJSON('../lib/projects.json');
-const projectsContainer = document.querySelector('.projects');
+// const projects = await fetchJSON('../lib/projects.json');
+// const projectsContainer = document.querySelector('.projects');
 
 export async function renderProjects(projects, containerElement, headingLevel = 'h2') {
   containerElement.innerHTML = ''
