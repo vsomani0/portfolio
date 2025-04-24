@@ -54,3 +54,12 @@ label.color-scheme {
   top: 3.5rem;
   right: 1rem;
 }
+#profile-stats > dl{
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+#profile-stats dt, #profile-stats dd {
+  flex: 1;
+  font-size:90%
+}

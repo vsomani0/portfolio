@@ -125,6 +125,10 @@ export async function renderProjects(projects, containerElement, headingLevel = 
   
 }
 
+export async function fetchGithubData(username) {
+  return await fetchJSON(`https://api.github.com/users/${username}`)
+}
+
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 };
