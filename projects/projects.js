@@ -10,7 +10,7 @@ renderProjects(projects, projectsContainer, 'h2');
 // DSC 80 Final Project
 // DSC 106 Project 1
 // Baseball Ejections Projects
-// Tic Tac Toe
+// Chess Game
 // Datahacks 2024
 
 

@@ -1,23 +1,28 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.!!!",
+        "title": "Predicting a food recipe's scores using Machine Learning",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem, corporis dignissimos saepe veniam velit beatae nulla at quae libero amet corrupti esse iste, quam, reiciendis possimus nostrum commodi id blanditiis."
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem, corporis dignissimos saepe veniam velit beatae nulla at quae libero amet corrupti esse iste, quam, reiciendis possimus nostrum commodi id blanditiis.",
+        "year": 2024
     },
     {
-        "title": "Voluptatibus eius sequi error?",
+        "title": "Whole Foods Really Does Sell More Whole Foods!",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Esse, assumenda! Modi dolore pariatur repellat, natus totam voluptate saepe rerum facere nisi nemo distinctio consequatur non vero error illum molestias eligendi est culpa reprehenderit maiores aperiam reiciendis debitis aliquam."
+        "description": "Esse, assumenda! Modi dolore pariatur repellat, natus totam voluptate saepe rerum facere nisi nemo distinctio consequatur non vero error illum molestias eligendi est culpa reprehenderit maiores aperiam reiciendis debitis aliquam.",
+        "year": 2025
+
     },
     {
-        "title": "Qui dolor consequuntur suscipit!",
+        "title": "MLB: Are older mananagers more likely to throw at hitters?",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Possimus a hic provident rem illum inventore ex aut qui! Quis facere cupiditate ipsam eaque porro corrupti delectus eum, soluta adipisci incidunt maiores vitae vel sit dolor perspiciatis numquam quod."
+        "description": "Possimus a hic provident rem illum inventore ex aut qui! Quis facere cupiditate ipsam eaque porro corrupti delectus eum, soluta adipisci incidunt maiores vitae vel sit dolor perspiciatis numquam quod.",
+        "year": 2023
     },
     {
-        "title": "Tempore dolore alias deserunt.",
+        "title": "Programming a Chess Game",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Totam eos aliquid explicabo error ex molestias, corrupti recusandae nam iste velit, architecto libero vel perferendis obcaecati eum. Blanditiis assumenda minus et ratione eum magnam enim, hic ex deserunt ipsam?"
+        "description": "Totam eos aliquid explicabo error ex molestias, corrupti recusandae nam iste velit, architecto libero vel perferendis obcaecati eum. Blanditiis assumenda minus et ratione eum magnam enim, hic ex deserunt ipsam?",
+        "year": 2023
     },
     {
         "title": "Aliquid saepe omnis eum.",
