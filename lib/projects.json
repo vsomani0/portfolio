@@ -1,14 +1,14 @@
 [
     {
         "title": "Predicting a food recipe's scores using Machine Learning",
-        "image": "./assets/hyp_test.png",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Conducted an extensive study on recipe reviews dataset, including tuned hyperparameters to perform a prediction",
         "github": "https://vsomani0.github.io/recipe-reviews/",
         "year": 2024
     },
     {
         "title": "Whole Foods Really Does Sell More Whole Foods!",
-        "image": "../assets/whole_foods.png",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Food processing scores of three major grocery stores by food category reveal that Whole Foods has less processed foods",
         "github": "TBA",
         "year": 2025
