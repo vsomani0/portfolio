@@ -1,34 +1,41 @@
 [
     {
         "title": "Predicting a food recipe's scores using Machine Learning",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem, corporis dignissimos saepe veniam velit beatae nulla at quae libero amet corrupti esse iste, quam, reiciendis possimus nostrum commodi id blanditiis.",
+        "image": "./assets/hyp_test.png",
+        "description": "Conducted an extensive study on recipe reviews dataset, including tuned hyperparameters to perform a prediction",
+        "github": "https://vsomani0.github.io/recipe-reviews/",
         "year": 2024
     },
     {
         "title": "Whole Foods Really Does Sell More Whole Foods!",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Esse, assumenda! Modi dolore pariatur repellat, natus totam voluptate saepe rerum facere nisi nemo distinctio consequatur non vero error illum molestias eligendi est culpa reprehenderit maiores aperiam reiciendis debitis aliquam.",
+        "image": "../assets/whole_foods.png",
+        "description": "Food processing scores of three major grocery stores by food category reveal that Whole Foods has less processed foods",
+        "github": "TBA",
         "year": 2025
-
+    },
+    {
+        "title": "Dinosaur Most Similar to a Pet: 2nd Place in Datahacks Hackathon",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Est molestiae sapiente dignissimos cupiditate ut? Aliquid minus dignissimos mollitia et optio molestias, laudantium aspernatur alias voluptates possimus quod, ad architecto praesentium voluptate dolore expedita in rerum a totam at.",
+        "github": "https://github.com/chloesuwignjo/dinogym",
+        "year": 2024
     },
     {
         "title": "MLB: Are older mananagers more likely to throw at hitters?",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Possimus a hic provident rem illum inventore ex aut qui! Quis facere cupiditate ipsam eaque porro corrupti delectus eum, soluta adipisci incidunt maiores vitae vel sit dolor perspiciatis numquam quod.",
+        "description": "Combined data from multiple sources to analyze the relationship between manager age and pitcher ejections for hit-by-pitches (proxy for throwing at hitters).",
+        "github": "https://github.com/vsomani0/mlb-pitcher-ejections",
         "year": 2023
     },
+
     {
         "title": "Programming a Chess Game",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Totam eos aliquid explicabo error ex molestias, corrupti recusandae nam iste velit, architecto libero vel perferendis obcaecati eum. Blanditiis assumenda minus et ratione eum magnam enim, hic ex deserunt ipsam?",
+        "description": "Programmed a chess game using C++ with all rules of chess and computed whether moves are valid.",
+        "github":"https://github.com/cs100/final-project-vsoma001-mkusn002-nyang065-lhuer022",
         "year": 2023
     },
-    {
-        "title": "Aliquid saepe omnis eum.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Est molestiae sapiente dignissimos cupiditate ut? Aliquid minus dignissimos mollitia et optio molestias, laudantium aspernatur alias voluptates possimus quod, ad architecto praesentium voluptate dolore expedita in rerum a totam at."
-    },
+
     {
         "title": "Dolorem quo nesciunt quia?",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
