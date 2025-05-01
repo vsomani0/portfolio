@@ -16,3 +16,10 @@ h1, h2 {
     text-wrap: balance;
     line-height: 1.1;
 }
+#projects-plot {
+    max-width: 20em;
+    margin-block: 2em;
+  
+    overflow: visible;
+  }
+  

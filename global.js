@@ -119,6 +119,7 @@ export async function renderProjects(projects, containerElement, headingLevel = 
     <${headingLevel}>${project.title}</${headingLevel}>
     <img src=${project?.image ?? 'Image Not Found'}, alt = "${project.title}">
     <p>${project.description}</p>
+    <p>c. ${project.year}</p>
     `
     containerElement.appendChild(article);
   }
