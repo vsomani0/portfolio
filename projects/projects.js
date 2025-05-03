@@ -60,11 +60,11 @@ function renderPieCharts(projectsGiven) {
             }
             else {
                 // projectsContainer.innerHTML = '';
-                renderProjects(projects, projectsContainer, 'h2');
+                renderProjects(projectsGiven, projectsContainer, 'h2');
             }
         });
     });
-    renderProjects(projects, projectsContainer, 'h2');
+    renderProjects(projectsGiven, projectsContainer, 'h2');
 }
 // Create a projects filter
 let query = '';
