@@ -3,13 +3,11 @@ import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
 const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
-renderProjects(projects, projectsContainer, 'h2');
 
 const projectCount = document.querySelectorAll('.projects > article').length;
 const h1Tag = document.querySelector('body > h1')
 h1Tag.innerText = projectCount + ' ' + h1Tag.innerText
 
-// Create a pie chart of projects by year
 function renderPieCharts(projectsGiven) {
     let newSVG = d3.select('svg');
     newSVG.selectAll('path').remove();
@@ -29,11 +27,6 @@ function renderPieCharts(projectsGiven) {
     let arcData = sliceGenerator(data);
     let arcs = arcData.map((d) => arcGenerator(d));
 
-    arcs.forEach((arc, i) => {
-        d3.select('svg').append('path').attr('d', arc).attr('fill', colors(i));
-    });
-
-    // Create a legend for the pie chart
     let legend = d3.select('.legend')
     if (data.length === 0) {
         legend.append('li').text('No Data Found');
@@ -44,6 +37,34 @@ function renderPieCharts(projectsGiven) {
     .attr('style', `--color:${colors(idx)}`) // set the style attribute while passing in parameters
     .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`); // set the inner html of <li>
     });
+    let selectedIndex = -1;
+    let svg = d3.select('svg');
+    svg.selectAll('path').remove();
+    arcs.forEach((arc, i) => {
+        svg
+        .append('path')
+        .attr('d', arc)
+        .attr('fill', colors(i))
+        .on('click', () => {
+            selectedIndex = selectedIndex === i ? -1 : i;
+            svg
+            .selectAll('path')
+            .attr('class', (_, idx) => (
+                idx === selectedIndex ? 'selected' : ''
+            ));
+            if (selectedIndex !== -1) {
+                projectsContainer.innerHTML = '';
+                renderProjects(projectsGiven.filter((project) => {
+                    return project.year === data[selectedIndex].label;
+                }), projectsContainer, 'h2');
+            }
+            else {
+                // projectsContainer.innerHTML = '';
+                renderProjects(projects, projectsContainer, 'h2');
+            }
+        });
+    });
+    renderProjects(projects, projectsContainer, 'h2');
 }
 // Create a projects filter
 let query = '';
@@ -54,7 +75,10 @@ searchInput.addEventListener('change', (event) => {
     let values = Object.values(project).join('\n').toLowerCase();
     return values.includes(query.toLowerCase());
   });
-  renderProjects(filteredProjects, projectsContainer, 'h2');
   renderPieCharts(filteredProjects);
+//   renderProjects(filteredProjects, projectsContainer, 'h2');
 });
 renderPieCharts(projects);
+
+
+
