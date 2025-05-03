@@ -4,10 +4,11 @@ import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
 
-const projectCount = document.querySelectorAll('.projects > article').length;
-const h1Tag = document.querySelector('body > h1')
-h1Tag.innerText = projectCount + ' ' + h1Tag.innerText
-
+function updateProjectCount() {
+    const projectCount = document.querySelectorAll('.projects > article').length;
+    const h1Tag = document.querySelector('body > h1')
+    h1Tag.innerText = `${projectCount} Projects`;
+}
 function renderPieCharts(projectsGiven) {
     let newSVG = d3.select('svg');
     newSVG.selectAll('path').remove();
@@ -57,14 +58,17 @@ function renderPieCharts(projectsGiven) {
                 renderProjects(projectsGiven.filter((project) => {
                     return project.year === data[selectedIndex].label;
                 }), projectsContainer, 'h2');
+                updateProjectCount();
             }
             else {
                 // projectsContainer.innerHTML = '';
                 renderProjects(projectsGiven, projectsContainer, 'h2');
+                updateProjectCount();
             }
         });
     });
     renderProjects(projectsGiven, projectsContainer, 'h2');
+    updateProjectCount();
 }
 // Create a projects filter
 let query = '';
