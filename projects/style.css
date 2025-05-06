@@ -9,26 +9,28 @@ article {
     grid-row: span 3;
     gap: 1em;
 }
+
 h2 {
     margin: 0;
 }
-h1, h2 {
+h1,
+h2 {
     text-wrap: balance;
     line-height: 1.1;
 }
 #projects-plot {
     max-width: 20em;
     margin-block: 2em;
-  
+
     overflow: visible;
-  }
+}
 .container {
     display: flex;
 }
 
 .legend {
     flex: 1;
-    display:grid;
+    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
     padding: 1em;
     border: 1px solid #ccc;
@@ -47,23 +49,23 @@ h1, h2 {
     border-radius: 0.5em;
     aspect-ratio: 1/1;
     background-color: var(--color);
-  }
-  &:has(path:hover) {
+}
+&:has(path:hover) {
     path:not(:hover) {
-      opacity: 0.5;
+        opacity: 0.5;
     }
-  }
-  path {
+}
+path {
     transition: 300ms;
-  }
+}
 
-  .selected {
+.selected {
     --color: oklch(60% 45% 0) !important;
-  
+
     &:is(path) {
-      fill: var(--color);
+        fill: var(--color);
     }
-  }
-  path {
+}
+path {
     cursor: pointer;
-  }
+}

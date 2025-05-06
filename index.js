@@ -1,13 +1,13 @@
-import { fetchJSON, renderProjects, fetchGithubData} from './global.js';
+import { fetchJSON, renderProjects, fetchGithubData } from "./global.js";
 
-const projects = await fetchJSON('./lib/projects.json');
+const projects = await fetchJSON("./lib/projects.json");
 const latestProjects = projects.slice(0, 3);
-const projectsContainer = document.querySelector('.projects')
+const projectsContainer = document.querySelector(".projects");
 if (projectsContainer) {
-    await renderProjects(latestProjects, projectsContainer, 'h2');
+    await renderProjects(latestProjects, projectsContainer, "h2");
 }
-const githubData = await fetchGithubData('vsomani0');
-const profileStats = document.querySelector('#profile-stats');
+const githubData = await fetchGithubData("vsomani0");
+const profileStats = document.querySelector("#profile-stats");
 if (profileStats) {
     profileStats.innerHTML = `
           <dl>
@@ -17,4 +17,4 @@ if (profileStats) {
             <dt>Following:</dt><dd>${githubData.following}</dd>
           </dl>
       `;
-  }
+}

@@ -1,143 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../style.css" />
+        <link rel="stylesheet" href="./style.css" />
+        <script type="module" src="../global.js"></script>
+        <title>Resume</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href= "../style.css"> 
-    <link rel="stylesheet" href="./style.css">
-    <script type = "module" src = "../global.js"></script>
-    <title>Resume</title>
-</head>
+    <body>
+        <h2 class="section-title">VIVEK SOMANI</h2>
+        <p>
+            <a href="vsomani0@gmail.com">vsomani0@gmail.com</a> |
+            <a href="https://www.linkedin.com/in/vivek-somani-2676a315b">
+                https://www.linkedin.com/in/vivek-somani-2676a315b</a
+            >
+            |
+            <a href="https://github.com/vsomani0">
+                https://github.com/vsomani0
+            </a>
+        </p>
 
-<body>
-    <h2 class = 'section-title'> VIVEK SOMANI</h2>
-    <p><a href="vsomani0@gmail.com">vsomani0@gmail.com</a> |
-        <a href="https://www.linkedin.com/in/vivek-somani-2676a315b">
-            https://www.linkedin.com/in/vivek-somani-2676a315b</a> |
-        <a href="https://github.com/vsomani0"> https://github.com/vsomani0 </a>
-    </p>
+        <section class="education">
+            <h2 class="section-title"><strong> EDUCATION</strong></h2>
+            <strong class="outer-date">
+                <span>University of California San Diego </span>
+                <span class="date">
+                    Expected: <time datetime="2026-03">Mar. 2026 </time>
+                </span>
+            </strong>
+            <strong> BS, Data Science | GPA: 3.96</strong><br />
+            <strong> Relevant Coursework</strong>
+            <ul>
+                <li>
+                    <strong> Core Data Science</strong>: Relational Database
+                    Management (SQL), Convex Optimization, Econometrics,
+                    Statistical Inference
+                </li>
+                <li>
+                    <strong> Machine Learning</strong>: Probabilistic Modeling
+                    and Machine Learning, Data Mining
+                </li>
+                <li>
+                    <strong> Foundational Topics</strong>: Software
+                    Construction, Data Structures and Algorithms, Linear Algebra
+                </li>
+            </ul>
+        </section>
 
-    <section class="education">
-        <h2 class = 'section-title'><strong> EDUCATION</strong></h2>
-        <strong class='outer-date'>
-            <span>University of California San Diego </span>
-            <span class='date'>
-                Expected: <time datetime="2026-03">Mar. 2026 </time>
-            </span>
-        </strong>
-        <strong> BS, Data Science | GPA: 3.96</strong><br>
-        <strong> Relevant Coursework</strong>
-        <ul>
-            <li> <strong> Core Data Science</strong>: Relational Database Management (SQL),
-                Convex Optimization, Econometrics, Statistical Inference
-            </li>
-            <li> <strong> Machine Learning</strong>: Probabilistic Modeling and Machine Learning, Data Mining</li>
-            <li> <strong> Foundational Topics</strong>: Software Construction, Data Structures and Algorithms,
-                Linear Algebra</li>
-        </ul>
-    </section>
+        <section class="skills">
+            <h2 class="section-title"><strong> SKILLS </strong></h2>
+            <ul>
+                <li>
+                    <strong>Languages</strong>: Python, SQL (PostgreSQL),
+                    Javascript, R, C++, HTML
+                </li>
+                <li>
+                    <strong>Tools</strong>: NumPy, Pandas, AWS, Sci-Kit Learn,
+                    PyTorch, Tableau, Docker, Kubernetes, Git, Excel
+                </li>
+                <li>
+                    <strong>Specialized Topics</strong>: Machine Learning
+                    Algorithms (Regression, Classification, Clustering),
+                    Statistical Theory and Applications, Cloud Computing, Data
+                    Visualization, Agile Development
+                </li>
+            </ul>
+        </section>
 
+        <section class="experience">
+            <h2 class="section-title"><strong> WORK EXPERIENCE</strong></h2>
+            <strong class="outer-date">
+                <span
+                    >Data Science Intern,
+                    <a href="https://www.firmographics.org/"> Nabh Inc</a></span
+                >
+                <span class="date">
+                    <time datetime="2024-06">Jun. 2024 </time> -
+                    <time datetime="2024-09">Sep. 2024 </time>
+                </span>
+            </strong>
+            <ul>
+                <li>
+                    Developed Node.js module to automatically find and update
+                    key firmographic data of ~100,000 public companies
+                </li>
+                <li>
+                    Extracted key sections from financial documents (10-K, 1-K)
+                    for LLM usage
+                </li>
+                <li>
+                    Enhanced LLM performance by 50% through batch processing and
+                    prompt engineering techniques
+                </li>
+            </ul>
 
-    <section class="skills">
-        <h2 class = 'section-title'> <strong> SKILLS </strong></h2>
-        <ul>
-            <li>
-                <strong>Languages</strong>: Python, SQL (PostgreSQL), Javascript, R, C++, HTML
-            </li>
-            <li>
-                <strong>Tools</strong>: NumPy, Pandas, AWS, Sci-Kit Learn,
-                PyTorch, Tableau, Docker, Kubernetes, Git, Excel
-            </li>
-            <li>
-                <strong>Specialized Topics</strong>:
-                Machine Learning Algorithms (Regression, Classification, Clustering),
-                Statistical Theory and Applications, Cloud Computing, Data Visualization, Agile Development
-            </li>
-        </ul>
-    </section>
+            <strong class="outer-date">
+                <span
+                    >Software Engineer Intern, <a href="sedai.io">sedai.io</a>
+                </span>
+                <span class="date">
+                    <time datetime="06-2023">Jun. 2023</time> -
+                    <time datetime="09-2023">Sep. 2023</time>
+                </span>
+            </strong>
+            <ul>
+                <li>
+                    Developed feature to dynamically track when an application
+                    functions are invoked and view its parameters in four
+                    languages (Go, Rust, C++, C)
+                </li>
+                <li>
+                    Used eBPF uprobes on Kubernetes to demonstrate successful
+                    tracing
+                </li>
+            </ul>
+        </section>
 
-    <section class="experience">
-        <h2 class = 'section-title'> <strong> WORK EXPERIENCE</strong></h2>
-        <strong class='outer-date'>
-            <span>Data Science Intern, <a href="https://www.firmographics.org/"> Nabh Inc</a></span>
-            <span class='date'>
-                <time datetime="2024-06">Jun. 2024 </time> - <time datetime="2024-09">Sep. 2024 </time>
-            </span>
-        </strong>
-        <ul>
-            <li>
-                Developed Node.js module to automatically find and update
-                key firmographic data of ~100,000 public companies
-            </li>
-            <li>
-                Extracted key sections from financial documents (10-K, 1-K) for LLM usage
-            </li>
-            <li>
-                Enhanced LLM performance by 50% through batch processing and prompt engineering techniques
-            </li>
-        </ul>
+        <section class="projects">
+            <h2 class="section-title"><strong> PROJECTS </strong></h2>
+            <strong class="outer-date">
+                <span
+                    ><a href="https://vsomani0.github.io/recipe-reviews/">
+                        Food Reviews Data Analysis</a
+                    >
+                </span>
+                <span class="date">
+                    <time datetime="2024-05"> May. 2024 </time> -
+                    <time datetime="2024-06"> Jun. 2024 </time>
+                </span>
+            </strong>
+            <ul>
+                <li>
+                    Conducted comprehensive data cleaning, hypothesis testing,
+                    and machine learning prediction on a dataset of 80,000 food
+                    reviews
+                </li>
+                <li>
+                    Engineered features and optimized a Random Forest model
+                    using GridSearchCV in scikit-learn to predict mean recipe
+                    ratings
+                </li>
+            </ul>
 
-        <strong class = 'outer-date'>
-            <span>Software Engineer Intern, <a href="sedai.io">sedai.io</a> </span>
-            <span class = 'date'> 
-                <time datetime = "06-2023">Jun. 2023</time> -
-                <time datetime = "09-2023">Sep. 2023</time>
-            </span>
-        </strong>
-        <ul>
-            <li> Developed feature to dynamically track when an application functions
-                are invoked and view its parameters in four languages (Go, Rust, C++, C)
-            </li>
-            <li>
-                Used eBPF uprobes on Kubernetes to demonstrate successful tracing
-            </li>
-        </ul>
-    </section>
-
-    <section class="projects">
-        <h2 class = 'section-title'> <strong> PROJECTS </strong></h2>
-        <strong class='outer-date'>
-            <span><a href="https://vsomani0.github.io/recipe-reviews/"> Food Reviews Data Analysis</a> </span>
-            <span class='date'>
-                <time datetime="2024-05"> May. 2024 </time> - <time datetime="2024-06"> Jun. 2024 </time>
-            </span>
-        </strong>
-        <ul>
-            <li>
-                Conducted comprehensive data cleaning, hypothesis testing,
-                and machine learning prediction on a dataset of 80,000 food reviews
-            </li>
-            <li>
-                Engineered features and optimized a Random Forest model using GridSearchCV
-                in scikit-learn to predict mean recipe ratings
-            </li>
-        </ul>
-
-        <span class = 'outer-date'>
-            <span>
-                <strong>
-                    <a href="https://github.com/chloesuwignjo/dinogym/"> DataHacks Hackathon </a>
-                </strong>
-            -- Found Pet Image Most Similar to a Dinosaur
-            </span> 
-                <strong class='date'>
+            <span class="outer-date">
+                <span>
+                    <strong>
+                        <a href="https://github.com/chloesuwignjo/dinogym/">
+                            DataHacks Hackathon
+                        </a>
+                    </strong>
+                    -- Found Pet Image Most Similar to a Dinosaur
+                </span>
+                <strong class="date">
                     <time datetime="2024-04"> Apr. 2024 </time>
                 </strong>
-        </span>
-        <ul>
-            <li> Team won 2nd place among 100+ contestants </li>
-            <li> Found similarity scores between dinosaur and pet image using a pre-trained CNN </li>
-        </ul>
-    </section>
+            </span>
+            <ul>
+                <li>Team won 2nd place among 100+ contestants</li>
+                <li>
+                    Found similarity scores between dinosaur and pet image using
+                    a pre-trained CNN
+                </li>
+            </ul>
+        </section>
 
-    <section class="activities">
-        <h2 class = 'section-title'> <strong> ACTIVITIES </strong></h2>
-        <ul>
-            <li> Chess (rating 2200 on <a href="chess.com"> chess.com </a>) </li>
-            <li> UCSD Chess Club Board Member </li>
-        </ul>
-    </section>
-</body>
-
+        <section class="activities">
+            <h2 class="section-title"><strong> ACTIVITIES </strong></h2>
+            <ul>
+                <li>
+                    Chess (rating 2200 on <a href="chess.com"> chess.com </a>)
+                </li>
+                <li>UCSD Chess Club Board Member</li>
+            </ul>
+        </section>
+    </body>
 </html>

@@ -1,5 +1,5 @@
 :root {
-  --color-accent: oklch(65% 50% 0)
+    --color-accent: oklch(65% 50% 0);
 }
 
 body {
@@ -7,28 +7,29 @@ body {
          and use the OS’s UI font as the website font
        */
     font: 100%/1.5 system-ui;
-  }
+}
 /*
-Flexbox allows for a more flexible document structure than the default, allowing you to specify how to use
+Flexbox allows for a more flexible document structure than the default, 
+allowing you to specify how to use
 remaining space, how to align rows and columns etc.
 */
-  body {
+body {
     max-width: 100ch;
     margin-inline: max(1em, (100% - 100ch) / 2);
-  }
-  :root {
-  --color-accent: oklch(65% 50% 0)
-  }
-  nav {
+}
+:root {
+    --color-accent: oklch(65% 50% 0);
+}
+nav {
     display: flex;
-  }
-  nav ul {
+}
+nav ul {
     display: contents;
-  }
-  nav ul li {
-    display: contents
-  }
-  nav ul a {
+}
+nav ul li {
+    display: contents;
+}
+nav ul a {
     flex-grow: 1;
     text-decoration: none;
     text-align: center;
@@ -37,29 +38,30 @@ remaining space, how to align rows and columns etc.
     border-bottom-color: oklch(50% 10% 200 / 40%);
     border-bottom-style: solid;
     border-bottom-width: 1px;
-  }
-  nav ul a.current {
+}
+nav ul a.current {
     border-bottom-width: 0.4em;
     padding-bottom: 0.2em;
-  }
-  a:hover {
-  border-bottom-color: var(--color-accent);
-  border-bottom-width: 0.4em;
-  padding-bottom: 0.2em;
+}
+a:hover {
+    border-bottom-color: var(--color-accent);
+    border-bottom-width: 0.4em;
+    padding-bottom: 0.2em;
 }
 label.color-scheme {
-  position: absolute;
-  font-size: 80%;
-  font-family: inherit;
-  top: 3.5rem;
-  right: 1rem;
+    position: absolute;
+    font-size: 80%;
+    font-family: inherit;
+    top: 3.5rem;
+    right: 1rem;
 }
-#profile-stats > dl{
-  display: flex;
-  flex-direction: row;
-  gap: 1em;
+#profile-stats > dl {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
 }
-#profile-stats dt, #profile-stats dd {
-  flex: 1;
-  font-size:90%
+#profile-stats dt,
+#profile-stats dd {
+    flex: 1;
+    font-size: 90%;
 }

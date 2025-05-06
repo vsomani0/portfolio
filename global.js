@@ -5,6 +5,7 @@ let pages = [
   {url: 'projects/', title: 'Projects'},
   {url: "https://github.com/vsomani0", title: 'Github'},
   {url: 'resume/', title: 'Resume'},
+  {url: 'meta/', title: 'Meta'},
 ]
 
 let nav = document.createElement('nav');
