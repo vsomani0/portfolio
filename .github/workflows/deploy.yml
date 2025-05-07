@@ -1,6 +1,6 @@
-name: Deploy Application
+- name: Deploy Application
 
-permissions:
+- permissions:
   contents: write
   pages: write
   id-token: write

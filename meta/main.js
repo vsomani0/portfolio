@@ -52,7 +52,7 @@ function renderCommitInfo(data, commits) {
     dl.append("dd").text(commits.length);
 
     // Add more stats as needed...
-    let timeCounts = countByTimeOfDay(data);
+    let timeCounts = countByTimeOfDay(commits);
     // Get time period of most commits
     let numLargestTimeCommits = d3.max(timeCounts, (d) => d.count);
     let timeLargestTimeCommits = timeCounts.find(
@@ -60,8 +60,8 @@ function renderCommitInfo(data, commits) {
     ).period;
     dl.append("dt").text("Most commits by time of day");
     dl.append("dd").text(`${timeLargestTimeCommits}: ${numLargestTimeCommits}`);
-    let dayCounts = countByDayOfWeek(data);
-    let numLargestDayCommits = d3.max(dayCounts, (d) => d.count);
+    let dayCounts = countByDayOfWeek(commits);
+    let numFewestDayCommits = d3.min(dayCounts, (d) => d.count);
     const daysOfWeek = [
         "Sunday",
         "Monday",
@@ -71,12 +71,12 @@ function renderCommitInfo(data, commits) {
         "Friday",
         "Saturday",
     ];
-    let dayLargestDayCommits =
+    let dayFewestDayCommits =
         daysOfWeek[
-            dayCounts.find((d) => d.count == numLargestDayCommits).period
+            dayCounts.find((d) => d.count == numFewestDayCommits).period
         ];
-    dl.append("dt").text("Most commits by day of week");
-    dl.append("dd").text(`${dayLargestDayCommits}: ${numLargestDayCommits}`);
+    dl.append("dt").text("Fewest commits by day of week");
+    dl.append("dd").text(`${dayFewestDayCommits}: ${numFewestDayCommits}`);
 }
 function countByTimeOfDay(data) {
     // Define time periods (hours in 24-hour format)
@@ -92,8 +92,7 @@ function countByTimeOfDay(data) {
         data,
         (v) => v.length, // Count the number of items
         (d) => {
-            const date = new Date(d.datetime);
-            const hour = date.getHours();
+            const hour = d.hourFrac;
 
             // Find which period this hour belongs to
             for (let period of periods) {
@@ -118,9 +117,6 @@ function countByTimeOfDay(data) {
 }
 
 function countByDayOfWeek(data) {
-    // Define time periods (hours in 24-hour format)
-
-    // Group data by period
     const counts = d3.rollup(
         data,
         (v) => v.length, // Count the number of items
