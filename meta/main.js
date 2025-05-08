@@ -35,7 +35,6 @@ function processCommits(data) {
             });
             return ret;
         });
-    console.log(out);
     return out;
 }
 
@@ -59,24 +58,15 @@ function renderCommitInfo(data, commits) {
         (d) => d.count == numLargestTimeCommits
     ).period;
     dl.append("dt").text("Most commits by time of day");
-    dl.append("dd").text(`${timeLargestTimeCommits}: ${numLargestTimeCommits}`);
+    dl.append("dd").text(
+        `${timeLargestTimeCommits} (${numLargestTimeCommits})`
+    );
     let dayCounts = countByDayOfWeek(commits);
     let numFewestDayCommits = d3.min(dayCounts, (d) => d.count);
-    const daysOfWeek = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-    ];
-    let dayFewestDayCommits =
-        daysOfWeek[
-            dayCounts.find((d) => d.count == numFewestDayCommits).period
-        ];
+    const stringDayOfWeek = convertDayOfWeekToString(numFewestDayCommits);
+    let dayFewestDayCommits = stringDayOfWeek;
     dl.append("dt").text("Fewest commits by day of week");
-    dl.append("dd").text(`${dayFewestDayCommits}: ${numFewestDayCommits}`);
+    dl.append("dd").text(`${dayFewestDayCommits} (${numFewestDayCommits})`);
 
     const averageFileLength = getAverageFileLength(data);
     dl.append("dt").text("Average file length");
@@ -85,10 +75,10 @@ function renderCommitInfo(data, commits) {
 function countByTimeOfDay(data) {
     // Define time periods (hours in 24-hour format)
     const periods = [
-        { name: "morning", start: 4, end: 12 }, // 5:00 AM to 11:59 AM
-        { name: "afternoon", start: 12, end: 17 }, // 12:00 PM to 4:59 PM
-        { name: "evening", start: 17, end: 22 }, // 5:00 PM to 9:59 PM
-        { name: "night", start: 22, end: 4 }, // 10:00 PM to 4:59 AM
+        { name: "Morning", start: 4, end: 12 }, // 5:00 AM to 11:59 AM
+        { name: "Afternoon", start: 12, end: 17 }, // 12:00 PM to 4:59 PM
+        { name: "Evening", start: 17, end: 22 }, // 5:00 PM to 9:59 PM
+        { name: "Night", start: 22, end: 4 }, // 10:00 PM to 4:59 AM
     ];
 
     // Group data by period
@@ -118,6 +108,19 @@ function countByTimeOfDay(data) {
         period: key,
         count: value,
     }));
+}
+
+function convertDayOfWeekToString(dayOfWeek) {
+    const daysOfWeek = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+    return daysOfWeek[dayOfWeek];
 }
 
 function countByDayOfWeek(data) {
@@ -180,7 +183,15 @@ function renderScatterPlot(data, commits) {
         .attr("cx", (d) => xScale(d.datetime))
         .attr("cy", (d) => yScale(d.hourFrac))
         .attr("r", 5)
-        .attr("fill", "steelblue");
+        .attr("fill", "steelblue")
+        .on("mouseenter", (event, commit) => {
+            renderTooltipContent(commit);
+            updateTooltipVisibility(true);
+            updateTooltipPosition(event);
+        })
+        .on("mouseleave", () => {
+            updateTooltipVisibility(false);
+        });
 
     const xAxis = d3.axisBottom(xScale);
     const yAxis = d3
@@ -204,6 +215,30 @@ function renderScatterPlot(data, commits) {
     gridlines.call(
         d3.axisLeft(yScale).tickFormat("").tickSize(-usableArea.width)
     );
+}
+
+function renderTooltipContent(commit) {
+    const link = document.getElementById("commit-link");
+    const date = document.getElementById("commit-date");
+
+    if (Object.keys(commit).length === 0) return;
+
+    link.href = commit.url;
+    link.textContent = commit.id;
+    date.textContent = commit.datetime?.toLocaleString("en", {
+        dateStyle: "full",
+    });
+}
+
+function updateTooltipVisibility(isVisible) {
+    const tooltip = document.getElementById("commit-tooltip");
+    tooltip.hidden = !isVisible;
+}
+
+function updateTooltipPosition(event) {
+    const tooltip = document.getElementById("commit-tooltip");
+    tooltip.style.left = `${event.clientX}px`;
+    tooltip.style.top = `${event.clientY}px`;
 }
 
 let data = await loadData();
