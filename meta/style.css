@@ -67,3 +67,8 @@ dl.info[hidden]:not(:hover, :focus-within) {
     margin: 0; /* Remove default margin */
     display: grid;
 }
+circle.selected {
+    fill: #ff6b6b;
+  }
+
+  
