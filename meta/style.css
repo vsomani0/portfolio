@@ -50,3 +50,20 @@ dl.info[hidden]:not(:hover, :focus-within) {
     opacity: 0;
     visibility: hidden;
 }
+
+#commit-tooltip {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1rem;
+    align-items: baseline;
+}
+#commit-tooltip > dt {
+    grid-column: 1;
+}
+
+#commit-tooltip > dd {
+    grid-column: 2;
+    font-weight: bold;
+    margin: 0; /* Remove default margin */
+    display: grid;
+}

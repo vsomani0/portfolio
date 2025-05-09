@@ -11,6 +11,7 @@ async function loadData() {
     }));
     return data;
 }
+
 function processCommits(data) {
     const out = d3
         .groups(data, (d) => d.commit)
@@ -72,6 +73,7 @@ function renderCommitInfo(data, commits) {
     dl.append("dt").text("Average file length");
     dl.append("dd").text(averageFileLength.toFixed(2));
 }
+
 function countByTimeOfDay(data) {
     // Define time periods (hours in 24-hour format)
     const periods = [
@@ -176,14 +178,21 @@ function renderScatterPlot(data, commits) {
     xScale.range([usableArea.left, usableArea.right]);
     yScale.range([usableArea.bottom, usableArea.top]);
 
+    const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
+    const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 15]);
+
+    // Reverse sorted order of commits
+    const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
+
     const dots = svg.append("g").attr("class", "dots");
     dots.selectAll("circle")
-        .data(commits)
+        .data(sortedCommits)
         .join("circle")
         .attr("cx", (d) => xScale(d.datetime))
         .attr("cy", (d) => yScale(d.hourFrac))
-        .attr("r", 5)
+        .attr("r", (d) => rScale(d.totalLines))
         .attr("fill", "steelblue")
+        .style("fill-opacity", 0.7)
         .on("mouseenter", (event, commit) => {
             renderTooltipContent(commit);
             updateTooltipVisibility(true);
@@ -220,6 +229,7 @@ function renderScatterPlot(data, commits) {
 function renderTooltipContent(commit) {
     const link = document.getElementById("commit-link");
     const date = document.getElementById("commit-date");
+    const lines = document.getElementById("commit-lines");
 
     if (Object.keys(commit).length === 0) return;
 
@@ -228,6 +238,7 @@ function renderTooltipContent(commit) {
     date.textContent = commit.datetime?.toLocaleString("en", {
         dateStyle: "full",
     });
+    lines.textContent = commit.totalLines;
 }
 
 function updateTooltipVisibility(isVisible) {
