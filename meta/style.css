@@ -26,12 +26,16 @@ dl.stats {
     display: grid;
     grid-template-rows: auto 1fr;
     gap: 0.5rem 1rem;
+
+    padding: 1em;
+    align-items: baseline;
+}
+
+#stats > dl.stats {
     border-style: solid;
     border-width: 1px;
     border-color: black;
     border-radius: 20%;
-    padding: 1em;
-    align-items: baseline;
 }
 
 .stats > dt {
