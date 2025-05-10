@@ -241,6 +241,7 @@ function brushed(event) {
     d3.selectAll("circle").classed("selected", (d) =>
         isCommitSelected(selection, d)
     );
+    
     renderSelectionCount(selection);
     renderLanguageBreakdown(selection);
 }

@@ -24,17 +24,22 @@ circle:hover {
 
 dl.stats {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
     gap: 0.5rem 1rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 20%;
+    padding: 1em;
     align-items: baseline;
 }
 
 .stats > dt {
-    grid-column: 1;
+    grid-row: 1;
 }
 
 .stats > dd {
-    grid-column: 2;
+    grid-row: 2;
     font-weight: bold;
     margin: 0; /* Remove default margin */
     display: grid;
@@ -69,6 +74,4 @@ dl.info[hidden]:not(:hover, :focus-within) {
 }
 circle.selected {
     fill: #ff6b6b;
-  }
-
-  
+}
