@@ -69,3 +69,8 @@ path {
 path {
     cursor: pointer;
 }
+
+.project-image {
+    max-width: 313.66px;
+    max-height: 156.83px;
+}

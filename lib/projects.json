@@ -1,14 +1,14 @@
 [
     {
         "title": "Predicting a food recipe's scores using Machine Learning",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "image": "../assets/hyp_test.png",
         "description": "Conducted an extensive study on recipe reviews dataset, including tuned hyperparameters to perform a prediction",
         "github": "https://vsomani0.github.io/recipe-reviews/",
         "year": 2024
     },
     {
         "title": "Whole Foods Really Does Sell More Whole Foods!",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "image": "../assets/whole_foods.png",
         "description": "Food processing scores of three major grocery stores by food category reveal that Whole Foods has less processed foods",
         "github": "TBA",
         "year": 2025
@@ -27,6 +27,12 @@
         "github": "https://github.com/vsomani0/mlb-pitcher-ejections",
         "year": 2023
     },
+    {
+        "title": "Visualized Bike Traffic in Boston",
+        "image": "../assets/bike_traffic_viz.png",
+        "description": "Used Mapbox and Javascript to visualize bike traffic in Boston. Includes bike lanes, stations with bike counts, and filtering by time.",
+        "year": 2025
+    },
 
     {
         "title": "Programming a Chess Game",
@@ -36,12 +42,7 @@
         "year": 2023
     },
 
-    {
-        "title": "Dolorem quo nesciunt quia?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Voluptatem tempore id illo aliquam corrupti ab porro accusantium vitae eligendi aut magnam, officia doloremque velit iste mollitia enim cumque laudantium dolore quos magni nostrum. Vero nesciunt ducimus totam adipisci!",
-        "year": 2024
-    },
+
     {
         "title": "Quisquam cumque voluptatibus.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",

@@ -84,4 +84,5 @@ searchInput.addEventListener("change", (event) => {
     renderPieCharts(filteredProjects);
     //   renderProjects(filteredProjects, projectsContainer, 'h2');
 });
+
 renderPieCharts(projects);

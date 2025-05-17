@@ -118,7 +118,7 @@ export async function renderProjects(projects, containerElement, headingLevel = 
     const article = document.createElement('article')
     article.innerHTML = `
     <${headingLevel}>${project.title}</${headingLevel}>
-    <img src=${project?.image ?? 'Image Not Found'}, alt = "${project.title}">
+    <img src=${project?.image ?? 'Image Not Found'} alt = "${project.title}" class="project-image">
     <p>${project.description}</p>
     <p>c. ${project.year}</p>
     `
