@@ -1,81 +1,103 @@
 .gridlines {
-    opacity: 0.1;
+  opacity: 0.1;
 }
 circle {
-    transition: 200ms;
-    transform-origin: center;
-    transform-box: fill-box;
+  @starting-style {
+  r: 0;
+}
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
 }
 
 circle:hover {
-    transform: scale(1.5);
+  transform: scale(1.5);
 }
 .tooltip {
-    position: fixed;
-    top: 1em;
-    left: 1em;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 20%;
-    border-width: 1px;
-    border-color: black;
-    padding: 1em;
-    border-style: solid;
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20%;
+  border-width: 1px;
+  border-color: black;
+  padding: 1em;
+  border-style: solid;
 }
 
 dl.stats {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    gap: 0.5rem 1rem;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 0.5rem 1rem;
 
-    padding: 1em;
-    align-items: baseline;
+  padding: 1em;
+  align-items: baseline;
 }
 
 #stats > dl.stats {
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    border-radius: 20%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 20%;
 }
 
 .stats > dt {
-    grid-row: 1;
+  grid-row: 1;
 }
 
 .stats > dd {
-    grid-row: 2;
-    font-weight: bold;
-    margin: 0; /* Remove default margin */
-    display: grid;
+  grid-row: 2;
+  font-weight: bold;
+  margin: 0; /* Remove default margin */
+  display: grid;
 }
 
 dl.info {
-    /* ... other styles ... */
-    transition-duration: 500ms;
-    transition-property: opacity, visibility;
+  /* ... other styles ... */
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
 }
 
 dl.info[hidden]:not(:hover, :focus-within) {
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
 
 #commit-tooltip {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.5rem 1rem;
-    align-items: baseline;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
 }
 #commit-tooltip > dt {
-    grid-column: 1;
+  grid-column: 1;
 }
 
 #commit-tooltip > dd {
-    grid-column: 2;
-    font-weight: bold;
-    margin: 0; /* Remove default margin */
-    display: grid;
+  grid-column: 2;
+  font-weight: bold;
+  margin: 0; /* Remove default margin */
+  display: grid;
 }
 circle.selected {
-    fill: #ff6b6b;
+  fill: #ff6b6b;
+}
+#filter {
+  display: flex;
+  width: 100%;
+}
+#filter > label {
+  width: 100%;
+  border-radius: 20%;
+  flex: 1;
+}
+#commit-time-slider {
+  width: 84.5%;
+}
+
+#selected-time {
+  width: 100%;
+  display: block;
+  text-align: right;
+  padding-right: 100em;
 }
