@@ -3,8 +3,8 @@
 }
 circle {
   @starting-style {
-  r: 0;
-}
+    r: 0;
+  }
   transition: 200ms;
   transform-origin: center;
   transform-box: fill-box;
@@ -100,4 +100,15 @@ circle.selected {
   display: block;
   text-align: right;
   padding-right: 100em;
+}
+.files > div {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+.files > div > dt {
+  grid-column: 1;
+}
+.files > div > dd {
+  grid-column: 2;
 }

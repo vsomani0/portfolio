@@ -353,6 +353,7 @@ commitTimeSlider.on("input", (event) => {
   selectedTime.text(commitMaxTime.toLocaleString());
   const filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
   updateScatterPlot(data, filteredCommits);
+  renderLinesInfo(filteredCommits);
 });
 
 const filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
@@ -360,3 +361,28 @@ const filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
 renderCommitInfo(data, commits);
 updateScatterPlot(data, filteredCommits);
 createBrushSelector(d3.select("#chart > svg"));
+
+function renderLinesInfo(filteredCommits) {
+  let lines = filteredCommits.flatMap((d) => d.lines);
+  let files = [];
+  files = d3
+    .groups(lines, (d) => d.file)
+    .map(([name, lines]) => {
+      return { name, lines };
+    });
+  console.log(files);
+  d3.select(".files").selectAll("div").remove(); // don't forget to clear everything first so we can re-render
+  let filesContainer = d3
+    .select(".files")
+    .selectAll("div")
+    .data(files)
+    .enter()
+    .append("div");
+  filesContainer
+    .append("dt")
+    .append("code")
+    .text((d) => d.name);
+  filesContainer.append("dd").text((d) => d.lines.length + " lines");
+}
+
+renderLinesInfo(filteredCommits);
