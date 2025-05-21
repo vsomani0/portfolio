@@ -2,6 +2,15 @@ import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 
 let xScale;
 let yScale;
+let NUM_ITEMS = 100; // Ideally, let this value be the length of your commit history
+let ITEM_HEIGHT = 30; // Feel free to change
+let VISIBLE_COUNT = 10; // Feel free to change as well
+let totalHeight = (NUM_ITEMS - 1) * ITEM_HEIGHT;
+const scrollContainer = d3.select('#scroll-container');
+const spacer = d3.select('#spacer');
+spacer.style('height', `${totalHeight}px`);
+
+
 async function loadData() {
   const data = await d3.csv("loc.csv", (row) => ({
     ...row,
@@ -356,12 +365,6 @@ commitTimeSlider.on("input", (event) => {
   renderLinesInfo(filteredCommits);
 });
 
-const filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
-
-renderCommitInfo(data, commits);
-updateScatterPlot(data, filteredCommits);
-createBrushSelector(d3.select("#chart > svg"));
-
 function renderLinesInfo(filteredCommits) {
   let lines = filteredCommits.flatMap((d) => d.lines);
   let files = [];
@@ -371,7 +374,8 @@ function renderLinesInfo(filteredCommits) {
       return { name, lines };
     });
   console.log(files);
-  d3.select(".files").selectAll("div").remove(); // don't forget to clear everything first so we can re-render
+  d3.select(".files").selectAll("div").remove(); 
+  let fileTypeColors = d3.scaleOrdinal(d3.schemeTableau10);
   let filesContainer = d3
     .select(".files")
     .selectAll("div")
@@ -382,7 +386,34 @@ function renderLinesInfo(filteredCommits) {
     .append("dt")
     .append("code")
     .text((d) => d.name);
-  filesContainer.append("dd").text((d) => d.lines.length + " lines");
+  filesContainer
+    .append("dd")
+    .attr("id", "file-lines")
+    .selectAll("div.line")
+    .data((d) => d.lines)
+    .join("div")
+    .attr("class", "line")
+    .style("background", (d) => fileTypeColors(d.commit))
+  files = d3.sort(files, (d) => -d.lines.length);
 }
+
+scrollContainer.on('scroll', () => {
+  const scrollTop = scrollContainer.property('scrollTop');
+  let startIndex = Math.floor(scrollTop / ITEM_HEIGHT);
+  startIndex = Math.max(
+    0,
+    Math.min(startIndex, commits.length - VISIBLE_COUNT),
+  );
+  renderItems(startIndex);
+});
+
+const itemsContainer = d3.select('#items-container');
+const filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
+
+renderCommitInfo(data, commits);
+updateScatterPlot(data, filteredCommits);
+createBrushSelector(d3.select("#chart > svg"));
+
+
 
 renderLinesInfo(filteredCommits);
