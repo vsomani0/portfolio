@@ -101,14 +101,45 @@ circle.selected {
   text-align: right;
   padding-right: 100em;
 }
+.files {
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
 .files > div {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: subgrid;
 }
-.files > div > dt {
+.files dt {
   grid-column: 1;
 }
-.files > div > dd {
+
+.files dd {
   grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
 }
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: steelblue;
+  border-radius: 50%;
+}
+#file-lines {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
