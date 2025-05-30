@@ -1,4 +1,5 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
+import scrollama from "https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm";
 
 let xScale;
 let yScale;
@@ -155,7 +156,7 @@ function renderScatterPlot(data, commits) {
   const width = 1000;
   const height = 600;
   const svg = d3
-    .select("#chart")
+    .select("#scatter-plot")
     .append("svg")
     .attr("viewBox", `0 0 ${width} ${height}`)
     .style("overflow", "visible");
@@ -242,7 +243,7 @@ function updateScatterPlot(data, commits) {
     height: height - margin.top - margin.bottom,
   };
 
-  const svg = d3.select("#chart").select("svg");
+  const svg = d3.select("#scatter-plot").select("svg");
 
   xScale = xScale.domain(d3.extent(commits, (d) => d.datetime));
 
@@ -409,7 +410,7 @@ const filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
 
 renderCommitInfo(data, commits);
 renderScatterPlot(data, filteredCommits);
-createBrushSelector(d3.select("#chart > svg"));
+createBrushSelector(d3.select("#scatter-plot > svg"));
 
 function renderLinesInfo(filteredCommits) {
   let lines = filteredCommits.flatMap((d) => d.lines);
@@ -428,21 +429,62 @@ function renderLinesInfo(filteredCommits) {
     .select(".files")
     .selectAll("div")
     .data(files)
-    .enter()
-    .append("div");
+    .join("div");
   filesContainer
     .append("dt")
     .append("code")
     .text((d) => d.name);
-  filesContainer.append("dd");
 
   filesContainer
-    .select("dd")
+    .append("dd")
     .selectAll("div")
     .data((d) => d.lines)
     .join("div")
     .attr("class", "loc")
-    .style("background", (d) => `--color: ${colors(d.type)}`);
+    .attr("style", (d) => `--color: ${colors(d.type)}`);
 }
+
 renderLinesInfo(filteredCommits);
 onTimeSliderChange();
+console.log(commits);
+commits = commits.sort((c1, c2) => c1.datetime - c2.datetime);
+
+d3.select("#scatter-story")
+  .selectAll(".step")
+  .data(commits)
+  .join("div")
+  .attr("class", "step")
+  .html(
+    (d, i) => `
+		On ${d.datetime.toLocaleString("en", {
+      dateStyle: "full",
+      timeStyle: "short",
+    })},
+		I made <a href="${d.url}" target="_blank">${
+      i > 0 ? "another glorious commit" : "my first commit, and it was glorious"
+    }</a>.
+		I edited ${d.totalLines} lines across ${
+      d3.rollups(
+        d.lines,
+        (D) => D.length,
+        (d) => d.file
+      ).length
+    } files.
+		Then I looked over all I had made, and I liked it quite a bit.
+	`
+  );
+
+function onStepEnter(response) {
+  commitMaxTime = response.element.__data__.datetime;
+  const filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
+  updateScatterPlot(data, filteredCommits);
+  renderLinesInfo(filteredCommits);
+}
+
+const scroller = scrollama();
+scroller
+  .setup({
+    container: "#scrolly-1",
+    step: "#scrolly-1 .step",
+  })
+  .onStepEnter(onStepEnter);

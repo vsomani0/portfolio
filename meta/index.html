@@ -13,6 +13,24 @@
   <body>
     <h1>Statistics</h1>
     <div id="stats"></div>
+    <h2>Commits by time of day</h2>
+    <div id="scrolly-1">
+      <div id="scatter-story"></div>
+      <div id="scatter-plot"></div>
+    </div>
+    <dl id="commit-tooltip" class="info tooltip" hidden>
+      <dt>Commit</dt>
+      <dd>
+        <a href="" id="commit-link" target="_blank"></a>
+      </dd>
+
+      <dt>Date</dt>
+      <dd id="commit-date"></dd>
+      <dt># Lines</dt>
+      <dd id="commit-lines"></dd>
+    </dl>
+    <p id="selection-count">No commits selected</p>
+    <dl id="language-breakdown" class="stats"></dl>
     <div id="filter">
       <label for="commit-time-slider">
         Show commits until:
@@ -27,20 +45,5 @@
       </label>
     </div>
     <dl class="files"></dl>
-    <h2>Commits by time of day</h2>
-    <div id="chart"></div>
-    <dl id="commit-tooltip" class="info tooltip" hidden>
-      <dt>Commit</dt>
-      <dd>
-        <a href="" id="commit-link" target="_blank"></a>
-      </dd>
-
-      <dt>Date</dt>
-      <dd id="commit-date"></dd>
-      <dt># Lines</dt>
-      <dd id="commit-lines"></dd>
-    </dl>
-    <p id="selection-count">No commits selected</p>
-    <dl id="language-breakdown" class="stats"></dl>
   </body>
 </html>
