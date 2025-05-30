@@ -441,7 +441,7 @@ function renderLinesInfo(filteredCommits) {
     .data((d) => d.lines)
     .join("div")
     .attr("class", "loc")
-    .attr("style", (d) => `--color: ${colors(d.type)}`);
+    .attr("style", (d) => `--color: ${colors(d.datetime)}`);
 }
 
 renderLinesInfo(filteredCommits);
